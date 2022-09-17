@@ -1,0 +1,27 @@
+server:
+  port: 8089
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shanzs?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 724318787
+# mybatis配置
+mybatis:
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 静态目录配置
+  mvc:
+    static-path-pattern: /**
+  web:
+    resources:
+      # 静态目录地址
+      static-locations: classpath:/static
+
+
+
+
+
+
+
+
