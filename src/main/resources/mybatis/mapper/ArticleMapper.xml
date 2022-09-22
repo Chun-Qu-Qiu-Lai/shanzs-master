@@ -7,18 +7,25 @@
         insert into article (title, content, category)
         values (#{title}, #{content}, #{category})
     </insert>
+    <select id="listArticle" resultType="com.shanzs.blog.entity.Article">
+        select *
+        from article
+    </select>
     <select id="getArticlesByCategory" parameterType="String" resultType="com.shanzs.blog.entity.Article">
         select *
         from article
         where category = #{category}
     </select>
-    <select id="listArticle" resultType="com.shanzs.blog.entity.Article">
+    <select id="getArticleById" parameterType="int" resultType="com.shanzs.blog.entity.Article">
         select *
         from article
+        where id = #{id}
     </select>
-    <select id="getArticleById" resultType="com.shanzs.blog.entity.Article" parameterType="int">
-        select *
-        from article
-        where id = #{articleId}
-    </select>
+    <update id="updateArticle" parameterType="com.shanzs.blog.entity.Article">
+        update article
+        set title=#{title},
+            category=#{category},
+            content=#{content}
+        where id = #{id}
+    </update>
 </mapper>

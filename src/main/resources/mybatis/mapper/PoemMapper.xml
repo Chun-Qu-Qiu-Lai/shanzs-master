@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shanzs.blog.mapper.PoemMapper">
+    <resultMap id="PoemResultMap" type="com.shanzs.blog.entity.Poem">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="author" column="author"/>
+        <result property="poemOne" column="poem_one"/>
+        <result property="poemTwo" column="poem_two"/>
+        <result property="create_time" column="create_time"/>
+        <result property="update_time" column="update_time"/>
+    </resultMap>
+    <select id="getPoemByRandom" resultMap="PoemResultMap">
+        SELECT *
+        FROM poem AS t1
+                 JOIN (SELECT ROUND(RAND() *
+                                    ((SELECT MAX(id) FROM `poem`) - (SELECT MIN(id) FROM poem)) +
+                                    (SELECT MIN(id) FROM poem)) AS id) AS t2
+        WHERE t1.id >= t2.id
+        ORDER BY t1.id
+        LIMIT 1
+    </select>
+</mapper>

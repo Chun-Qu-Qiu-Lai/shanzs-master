@@ -10,6 +10,8 @@ spring:
 mybatis:
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapper-locations: classpath:mybatis/mapper/*.xml
+  # Mybatis开启驼峰映射
+
   # 静态目录配置
   mvc:
     static-path-pattern: /**

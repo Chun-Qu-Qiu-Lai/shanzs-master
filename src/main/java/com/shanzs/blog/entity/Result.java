@@ -12,15 +12,29 @@ public class Result<T> implements Serializable {
   private String msg;
   private T data;
 
+
+  public static <T> Result<T> success() {
+    return success(null);
+  }
+
+  public static <T> Result<T> success(T data) {
+    return new Result<T>(ResultStatus.SUCCESS.getResultCode(), ResultStatus.SUCCESS.getResultDescription(), data);
+  }
+
+  public static <T extends Serializable> Result<T> fail() {
+    return fail(null);
+  }
+
+  public static <T> Result<T> fail(T data) {
+    return new Result<T>(ResultStatus.FAIL.getResultCode(), ResultStatus.FAIL.getResultDescription(), data);
+  }
+
   public Result(int code, String msg, T data) {
     this.code = code;
     this.msg = msg;
     this.data = data;
   }
-  public Result(int code, String msg) {
-    this.code = code;
-    this.msg = msg;
-  }
+
   public int getCode() {
     return code;
   }

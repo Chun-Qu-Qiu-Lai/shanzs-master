@@ -3,27 +3,24 @@ package com.shanzs.blog.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-
-public class Article implements Serializable {
+public class Poem implements Serializable {
   private Integer id;
-  private String author;
   private String title;
-  private byte[] content;
-  private String category;
+  private String author;
+  private String poemOne;
+  private String poemTwo;
   private Date create_time;
   private Date update_time;
 
-  public Article() {
+  public Poem() {
   }
 
-  ;
-
-  public Article(Integer id, String author, String title, byte[] content, String category, Date create_time, Date update_time) {
+  public Poem(Integer id, String title, String author, String poemOne, String poemTwo, Date create_time, Date update_time) {
     this.id = id;
-    this.author = author;
     this.title = title;
-    this.content = content;
-    this.category = category;
+    this.author = author;
+    this.poemOne = poemOne;
+    this.poemTwo = poemTwo;
     this.create_time = create_time;
     this.update_time = update_time;
   }
@@ -36,14 +33,6 @@ public class Article implements Serializable {
     this.id = id;
   }
 
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
   public String getTitle() {
     return title;
   }
@@ -52,20 +41,28 @@ public class Article implements Serializable {
     this.title = title;
   }
 
-  public byte[] getContent() {
-    return content;
+  public String getAuthor() {
+    return author;
   }
 
-  public void setContent(byte[] content) {
-    this.content = content;
+  public void setAuthor(String author) {
+    this.author = author;
   }
 
-  public String getCategory() {
-    return category;
+  public String getPoem_one() {
+    return poemOne;
   }
 
-  public void setCategory(String category) {
-    this.category = category;
+  public void setPoem_one(String poemOne) {
+    this.poemOne = poemOne;
+  }
+
+  public String getPoem_two() {
+    return poemTwo;
+  }
+
+  public void setPoem_two(String poemTwo) {
+    this.poemTwo = poemTwo;
   }
 
   public Date getCreate_time() {
