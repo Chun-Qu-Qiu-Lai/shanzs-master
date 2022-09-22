@@ -14,9 +14,9 @@ public enum ResultStatus {
   HTTP_STATUS_401(401, "no authentication"),
   HTTP_STATUS_403(403, "no authorities"),
   HTTP_STATUS_409(409,"密码为空"),
-  HTTP_STATUS_4011(409,"查无此人"),
-  HTTP_STATUS_410(410, "server error"),
-  HTTP_STATUS_408(501,"账号为空");
+  HTTP_STATUS_408(411,"账号为空"),
+  HTTP_STATUS_411(409,"查无此人"),
+  HTTP_STATUS_410(410, "server error");
 
 
 
