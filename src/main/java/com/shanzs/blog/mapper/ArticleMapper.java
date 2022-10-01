@@ -18,7 +18,9 @@ public interface ArticleMapper {
 
   //获取文章通过文章id
   Article getArticleById(int id);
+
   //修改文章
   int updateArticle(Article article);
 
+  int deleteArticle(int articleId);
 }

@@ -2,7 +2,7 @@ package com.shanzs.blog.controller;
 
 import com.shanzs.blog.entity.Result;
 import com.shanzs.blog.entity.ResultStatus;
-import com.shanzs.blog.mapper.PoemMapper;
+import com.shanzs.blog.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 @RequestMapping("/shanzs/blog")
-public class PoemController {
+public class MenuController {
   @Autowired
-  private PoemMapper poemMapper;
+  private MenuMapper menuMapper;
 
-  @GetMapping("/getPoem")
-  private Result getPoem() {
-    return Result.success(ResultStatus.SUCCESS,poemMapper.getPoemByRandom());
+  @GetMapping("/get_menus")
+  private Result listMenu() {
+    return Result.success(ResultStatus.SUCCESS, menuMapper.listMenu());
   }
+
 }

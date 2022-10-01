@@ -28,4 +28,9 @@
             content=#{content}
         where id = #{id}
     </update>
+    <delete id="deleteArticle">
+        delete
+        from article
+        where id = #{articleId}
+    </delete>
 </mapper>

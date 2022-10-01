@@ -8,6 +8,7 @@ public class ShanzsMasterApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(ShanzsMasterApplication.class, args);
+    System.out.println();
   }
 
 }

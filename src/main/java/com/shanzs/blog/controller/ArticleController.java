@@ -3,6 +3,7 @@ package com.shanzs.blog.controller;
 import com.shanzs.blog.entity.Article;
 import com.shanzs.blog.entity.RArticle;
 import com.shanzs.blog.entity.Result;
+import com.shanzs.blog.entity.ResultStatus;
 import com.shanzs.blog.mapper.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class ArticleController {
     article.setCategory(articleCategory);
     article.setContent(articleContent.getBytes());
     articleMapper.insertArticle(article);
-    return Result.success();
+    return Result.success(ResultStatus.SUCCESS);
   }
 
   @GetMapping("/get_articles")
@@ -83,7 +84,7 @@ public class ArticleController {
         ar.put("update_time", article.getUpdate_time());
         r.add(ar);
       }
-      return Result.success(r);
+      return Result.success(ResultStatus.SUCCESS, r);
     }
   }
 
@@ -136,7 +137,7 @@ public class ArticleController {
     r.put("category", article.getCategory());
     r.put("create_time", sdf.format(article.getCreate_time()));
     r.put("update_time", article.getUpdate_time());
-    return Result.success(r);
+    return Result.success(ResultStatus.SUCCESS, r);
   }
 
   @PostMapping("/update_article")
@@ -150,7 +151,16 @@ public class ArticleController {
     if (articleMapper.updateArticle(article) <= 0) {
       return Result.fail();
     }
-    return Result.success();
+    return Result.success(ResultStatus.SUCCESS);
+  }
+
+  @GetMapping("/delete_article")
+  private Result deleteArticle(@RequestParam("articleId") Integer articleId) {
+    if (articleId == null) {
+      return Result.fail(ResultStatus.HTTP_STATUS_401);
+    }
+    System.out.println(articleMapper.deleteArticle(articleId));
+    return Result.success(ResultStatus.SUCCESS);
   }
 }
 
