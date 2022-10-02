@@ -3,10 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shanzs.blog.mapper.UserMapper">
-    <select id="getUser" parameterType="com.shanzs.blog.entity.User" resultType="com.shanzs.blog.entity.User">
+    <select id="selectUserByUsername" resultType="com.shanzs.blog.entity.User">
         select *
         from user
         where username = #{username}
-          and password = #{password}
     </select>
 </mapper>

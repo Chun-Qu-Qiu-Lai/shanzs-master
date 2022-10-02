@@ -7,6 +7,7 @@ public class User implements Serializable {
   private Integer id;
   private String username;
   private String password;
+
   private Date create_time;
   private Date update_time;
 
@@ -21,6 +22,7 @@ public class User implements Serializable {
     this.create_time = create_time;
     this.update_time = update_time;
   }
+
 
   public Integer getId() {
     return id;

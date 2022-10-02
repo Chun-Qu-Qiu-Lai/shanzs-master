@@ -18,7 +18,7 @@ public class MenuController {
 
   @GetMapping("/get_menus")
   private Result listMenu() {
-    return Result.success(ResultStatus.SUCCESS, menuMapper.listMenu());
+    return Result.success(ResultStatus.SUCCESS, menuMapper.selectMenuList());
   }
 
 }
